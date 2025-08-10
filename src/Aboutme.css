@@ -1,0 +1,83 @@
+.about-me-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  position: relative;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 80px 0;
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+  margin-bottom: 50px;
+}
+
+.profile-image-container {
+  position: relative;
+  padding-top: 100%;
+}
+
+.profile-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 5px solid white;
+}
+
+.circle-decoration {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -10%;
+  left: -10%;
+  z-index: -1;
+}
+
+.sidebar {
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #667eea;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.interest-icon {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    padding: 40px 0;
+  }
+
+  .profile-image-container {
+    margin-top: 30px;
+    padding-top: 60%;
+  }
+}

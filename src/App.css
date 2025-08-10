@@ -1,42 +1,89 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.navbar-custom {
+  background: #09072e;
+  background: linear-gradient(
+    90deg,
+    rgba(9, 7, 46, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(10, 15, 51, 1) 100%
+  );
+}
+.jumbotron-custom {
+  background: #000000;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(51, 51, 89, 1) 47%,
+    rgba(7, 3, 20, 1) 100%
+  );
+  color: white;
+  border-radius: 0;
+  padding: 6rem 2rem;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.jumbotron-custom .bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.jumbotron-custom .bg-circle-1 {
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  right: -50px;
+}
+
+.jumbotron-custom .bg-circle-2 {
+  width: 150px;
+  height: 150px;
+  bottom: -50px;
+  left: -50px;
+}
+
+.jumbotron-custom .btn-custom {
+  background-color: #fff;
+  color: #764ba2;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.jumbotron-custom .btn-custom:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.jumbotron-custom .container {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .jumbotron-custom {
+    padding: 4rem 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .jumbotron-custom h1 {
+    font-size: 2rem;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.img-3d {
+  transform-style: preserve-3d;
+  transform: perspective(5000px) rotateY(10deg) rotateX(50deg);
+  transition: transform 0.5s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.img-3d:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.05);
 }
