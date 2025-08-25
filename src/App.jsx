@@ -43,12 +43,6 @@ function App() {
               <a className="nav-link text-white text-bold" href="#Content">
                 Content
               </a>
-              <a
-                className="nav-link disabled text-white text-bold"
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
             </div>
           </div>
         </div>

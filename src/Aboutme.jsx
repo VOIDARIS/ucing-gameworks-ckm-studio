@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Aboutme.css";
-import profile from "./assets/Profile.svg";
+import profileAris from "./assets/potoAris.jpeg";
+import coverProjectOne from "./assets/projectOne.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const AboutMe = () => {
@@ -25,48 +26,29 @@ const AboutMe = () => {
     title: "Creative Developer & Designer",
     location: "Jawa Barat, Tasikmalaya, IND",
     email: "voidaris450@gmail.com",
-    bio: "I blend technology and design to create meaningful digital experiences that tell stories and solve problems.",
+    bio: "“We are a local group of cats, the VOIDARIS_GAME studio, born in 2025. We focus on creating games with a local feel and a modern touch, delivering a fun and meaningful gaming experience.”",
     skills: [
-      "UI/UX Design",
-      "React Development",
-      "Motion Graphics",
-      "Product Strategy",
-      "Brand Identity",
-      "Frontend Architecture",
+      "3D & 2D Games with Unity",
+      "Immersive character & world design",
+      "Interactive, story-driven experiences",
     ],
   };
 
   const experience = [
     {
-      year: "2021 - Present",
-      role: "Senior Product Designer",
-      company: "Digital Innovations Inc.",
-      description: "Lead designer for enterprise SaaS products",
-    },
-    {
-      year: "2018 - 2021",
-      role: "UX Developer",
-      company: "Creative Solutions LLC",
-      description: "Built interactive prototypes and design systems",
-    },
-    {
-      year: "2016 - 2018",
-      role: "Frontend Developer",
-      company: "WebTech Solutions",
-      description: "Developed responsive web applications",
+      year: "2025 - Present",
+      poto: "profileAris",
+      role: "programmer & 3D Artisan",
+      description:
+        "“Currently, our team consists of one developer who handles coding, design, and assets, proving that creativity is not limited by team size.”",
     },
   ];
 
   const education = [
     {
-      year: "2016",
-      degree: "MSc in Human-Computer Interaction",
-      university: "Stanford University",
-    },
-    {
-      year: "2014",
-      degree: "BSc in Computer Science",
-      university: "University of California",
+      year: "2025",
+      degree: "There has been no education from us",
+      university: "wait for the next update",
     },
   ];
 
@@ -74,85 +56,77 @@ const AboutMe = () => {
     {
       title: "Photography",
       icon: "📷",
-      description: "Capturing moments and landscapes",
-    },
-    {
-      title: "Rock Climbing",
-      icon: "🧗",
-      description: "Push physical limits, solve problems",
-    },
-    {
-      title: "Cooking",
-      icon: "👨‍🍳",
-      description: "Experimental gastronomy enthusiast",
-    },
-    {
-      title: "Music Production",
-      icon: "🎹",
-      description: "Electronic beats and ambient sounds",
+      description:
+        "Our vision is to deliver games that not only entertain but also inspire. We believe every game has the power to tell a story and bring together players from diverse backgrounds.",
     },
   ];
 
   const projects = [
     {
-      name: "Design System Framework",
-      year: "2022",
-      description: "Open-source design system for React applications",
-      tags: ["React", "Figma", "Storybook"],
+      name: "Shadow of the Resistance",
+      cover: "coverProjectOne",
+      year: "Thn-2022",
+      description:
+        "A historically themed stealth-action game where players become stealthy warriors, infiltrating enemy bases and waging resistance from the shadows to seize independence.",
+      tags: ["UNITY", "BLENDER", "TRIVO", "MIXAMO"],
     },
-    {
-      name: "AI Photo Editor",
-      year: "2021",
-      description: "Machine learning powered image enhancement tool",
-      tags: ["Python", "TensorFlow", "React"],
-    },
-    {
-      name: "Interactive Data Viz",
-      year: "2020",
-      description: "Real-time visualization of financial markets",
-      tags: ["D3.js", "WebGL", "Node.js"],
-    },
+  ];
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
+  // Tentukan data berdasarkan tab
+  const getData = () => {
+    if (activeTab === "experience") return experience;
+    if (activeTab === "education") return education;
+    if (activeTab === "projects") return projects;
+    return [];
+  };
+
+  const data = getData();
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentData = data.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage((p) => p - 1);
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage((p) => p + 1);
+  };
+
+  const gallery = [
+    { src: "https://placehold.co/100x50?text=1", alt: "Image 1" },
+    { src: "https://placehold.co/100x50?text=2", alt: "Image 2" },
+    { src: "https://placehold.co/100x50?text=3", alt: "Image 3" },
+    { src: "https://placehold.co/100x50?text=4", alt: "Image 4" },
+    { src: "https://placehold.co/100x50?text=5", alt: "Image 5" },
+    { src: "https://placehold.co/100x50?text=6", alt: "Image 6" },
+    { src: "https://placehold.co/100x50?text=7", alt: "Image 7" },
+    { src: "https://placehold.co/100x50?text=8", alt: "Image 8" },
+    { src: "https://placehold.co/100x50?text=9", alt: "Image 9" },
+    { src: "https://placehold.co/100x50?text=10", alt: "Image 10" },
+    { src: "https://placehold.co/100x50?text=11", alt: "Image 11" },
+    { src: "https://placehold.co/100x50?text=12", alt: "Image 12" },
+    { src: "https://placehold.co/100x50?text=13", alt: "Image 13" },
+    { src: "https://placehold.co/100x50?text=14", alt: "Image 14" },
+    { src: "https://placehold.co/100x50?text=15", alt: "Image 15" },
   ];
 
   return (
     <div id="about" className="about-me-container">
-      {/* Hero Section */}
-      <div className="hero-section position-relative">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 d-flex flex-column justify-content-center">
-              <h1 className="display-3 fw-bold mb+3 text-white">
-                Hello, I'm {personalInfo.name}
-              </h1>
-              <p className="lead text-white">{personalInfo.title}</p>
-              <button className="btn btn-primary btn-lg align-self-start mt-3">
-                Get in Touch
-              </button>
-            </div>
-            <div className="col-md-6">
-              <div className="profile-image-container">
-                <div className="profile-image-wrapper">
-                  <img
-                    src={profile}
-                    alt="Portrait of Alex Johnson wearing glasses in creative workspace"
-                    className="img-fluid rounded-circle shadow-lg"
-                  />
-                  <div className="circle-decoration"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div id="Content" className="container main-content py-5">
+        <div className="bg-circle bg-circle-1"></div>
         <div className="row">
           {/* Sidebar */}
           <div className="col-md-3 sidebar pe-4">
             <div className="card mb-4">
               <div className="card-body">
-                <h5 className="card-title border-bottom pb-2">Contact Info</h5>
+                <h5 className="card-title border-bottom pb-2 text-white">
+                  <i class="bi bi-person-rolodex pe-1"></i>
+                  Contact Info
+                </h5>
                 <ul className="list-unstyled">
                   <li className="mb-2">
                     <i className="bi bi-geo-alt-fill me-2"></i>{" "}
@@ -171,7 +145,10 @@ const AboutMe = () => {
 
             <div className="card mb-4">
               <div className="card-body">
-                <h5 className="card-title border-bottom pb-2">Skills</h5>
+                <h5 className="card-title border-bottom pb-2 text-white">
+                  <i class="bi bi-controller pe-1"></i>
+                  Field / Specialization
+                </h5>
                 <div className="skills-container">
                   {personalInfo.skills.map((skill, index) => (
                     <span key={index} className="badge bg-primary me-1 mb-1">
@@ -184,19 +161,18 @@ const AboutMe = () => {
 
             <div className="card mb-4">
               <div className="card-body">
-                <h5 className="card-title border-bottom pb-2">Interests</h5>
+                <h5 className="card-title border-bottom pb-2 text-white">
+                  <i class="bi bi-incognito pe-1"></i>
+                  Vision & Mission
+                </h5>
                 <div className="interests-container">
                   {interests.map((item, index) => (
                     <div
                       key={index}
                       className="interest-item mb-2 d-flex align-items-center"
                     >
-                      <span className="interest-icon me-2">{item.icon}</span>
                       <div>
-                        <div className="fw-bold">{item.title}</div>
-                        <div className="small text-muted">
-                          {item.description}
-                        </div>
+                        <div className="small">{item.description}</div>
                       </div>
                     </div>
                   ))}
@@ -209,33 +185,30 @@ const AboutMe = () => {
           <div className="col-md-9">
             <div className="card mb-4">
               <div className="card-body">
-                <h4 className="card-title mb-4">Biography</h4>
-                <p className="lead">{personalInfo.bio}</p>
-                <p>
-                  With over 8 years of experience in the digital space, I've
-                  worked with startups, agencies, and enterprises to craft
-                  experiences that resonate with users. My approach combines
-                  technical knowledge with aesthetic sensibility to create
-                  solutions that are both functional and beautiful.
-                </p>
-                <p>
-                  When I'm not coding or designing, you can find me exploring
-                  photography spots around the city or experimenting with new
-                  recipes in my kitchen.
-                </p>
+                <h4 className="card-title mb-4 text-white">
+                  {" "}
+                  <i class="bi bi-receipt pe-1"></i>Biography
+                </h4>
+                <p className="lead bio">{personalInfo.bio}</p>
               </div>
+              <p className="position-absolute bottom-0 end-0 text-success fs-1 m-3">
+                🍵
+              </p>
             </div>
 
             {/* Tab Navigation */}
-            <ul className="nav nav-tabs mb-4">
+            <ul className="nav nav-tabs mb-4 card-body">
               <li className="nav-item">
                 <button
                   className={`nav-link ${
                     activeTab === "experience" ? "active" : ""
                   }`}
-                  onClick={() => setActiveTab("experience")}
+                  onClick={() => {
+                    setActiveTab("experience");
+                    setCurrentPage(1); // reset page tiap ganti tab
+                  }}
                 >
-                  Experience
+                  <i class="bi bi-microsoft-teams pe-1"></i> Team
                 </button>
               </li>
               <li className="nav-item">
@@ -243,9 +216,12 @@ const AboutMe = () => {
                   className={`nav-link ${
                     activeTab === "education" ? "active" : ""
                   }`}
-                  onClick={() => setActiveTab("education")}
+                  onClick={() => {
+                    setActiveTab("education");
+                    setCurrentPage(1);
+                  }}
                 >
-                  Education
+                  <i class="bi bi-lightbulb-fill pe-1"></i> Education
                 </button>
               </li>
               <li className="nav-item">
@@ -253,29 +229,37 @@ const AboutMe = () => {
                   className={`nav-link ${
                     activeTab === "projects" ? "active" : ""
                   }`}
-                  onClick={() => setActiveTab("projects")}
+                  onClick={() => {
+                    setActiveTab("projects");
+                    setCurrentPage(1);
+                  }}
                 >
-                  Projects
+                  <i class="bi bi-projector-fill pe-1"></i> Projects
                 </button>
               </li>
             </ul>
 
             {/* Tab Content */}
-            <div className="tab-content">
+            <div className="tab-content ">
               {activeTab === "experience" && (
                 <div className="experience-content">
-                  {experience.map((item, index) => (
+                  {currentData.map((item, index) => (
                     <div key={index} className="timeline-item mb-4">
                       <div className="d-flex">
+                        <img
+                          src={profileAris}
+                          className="img-thumbnail w-25 h-25"
+                        />
                         <div
-                          className="timeline-year pe-3 text-end"
+                          className="timeline-year d-flex align-items-center justify-content-center pe-3 text-end"
                           style={{ width: "100px" }}
                         >
-                          <span className="badge bg-primary">{item.year}</span>
+                          <span className="badge bg-primary ms-2">
+                            {item.year}
+                          </span>
                         </div>
                         <div className="timeline-content">
                           <h5>{item.role}</h5>
-                          <p className="text-muted">{item.company}</p>
                           <p>{item.description}</p>
                         </div>
                       </div>
@@ -286,18 +270,18 @@ const AboutMe = () => {
 
               {activeTab === "education" && (
                 <div className="education-content">
-                  {education.map((item, index) => (
+                  {currentData.map((item, index) => (
                     <div key={index} className="timeline-item mb-4">
                       <div className="d-flex">
                         <div
-                          className="timeline-year pe-3 text-end"
+                          className="timeline-year d-flex align-items-center justify-content-center pe-3 text-end"
                           style={{ width: "100px" }}
                         >
                           <span className="badge bg-primary">{item.year}</span>
                         </div>
                         <div className="timeline-content">
                           <h5>{item.degree}</h5>
-                          <p className="text-muted">{item.university}</p>
+                          <p>{item.university}</p>
                         </div>
                       </div>
                     </div>
@@ -308,28 +292,32 @@ const AboutMe = () => {
               {activeTab === "projects" && (
                 <div className="projects-content">
                   <div className="row">
-                    {projects.map((project, index) => (
-                      <div key={index} className="col-md-6 mb-4">
-                        <div className="card h-100">
+                    {currentData.map((project, index) => (
+                      <div key={index} className="timeline-item mb-4">
+                        <div className="d-flex">
                           <img
-                            src="https://placehold.co/600x400"
-                            alt={`Screenshot of ${project.name} project showing application interface`}
-                            className="card-img-top"
+                            src={coverProjectOne}
+                            className="img-thumbnail w-25 h-25"
                           />
-                          <div className="card-body">
-                            <h5 className="card-title">{project.name}</h5>
-                            <span className="badge bg-secondary mb-2">
+                          <div
+                            className="timeline-year d-flex align-items-center justify-content-center pe-3 text-end"
+                            style={{ width: "100px" }}
+                          >
+                            <span className="badge bg-primary m-2">
                               {project.year}
                             </span>
-                            <p className="card-text">{project.description}</p>
+                          </div>
+                          <div className="timeline-content">
+                            <h5>{project.name}</h5>
+                            <p>{project.description}</p>
                             <div>
-                              {project.tags.map((tag, tagIndex) => (
-                                <span
-                                  key={tagIndex}
-                                  className="badge bg-light text-dark me-1"
+                              {project.tags.map((tag, index) => (
+                                <button
+                                  key={index}
+                                  className="px-2 py-1 me-3 text-xs rounded-full bg-indigo-600 text-white btn btn-outline-primary transition"
                                 >
                                   {tag}
-                                </span>
+                                </button>
                               ))}
                             </div>
                           </div>
@@ -339,21 +327,65 @@ const AboutMe = () => {
                   </div>
                 </div>
               )}
+
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="d-flex justify-content-between align-items-center mt-3">
+                  <button
+                    className="btn btn-secondary"
+                    onClick={handlePrev}
+                    disabled={currentPage === 1}
+                  >
+                    ← Prev
+                  </button>
+                  <span className="text-white">
+                    Page {currentPage} of {totalPages}
+                  </span>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={handleNext}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next →
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
 
+      <div className="image-slider">
+        <div className="image-track">
+          {gallery.map((img, index) => (
+            <img
+              key={index}
+              src={img.src}
+              alt={img.alt}
+              className="mx-2"
+              style={{ width: "100px", height: "50px" }}
+            />
+          ))}
+          {/* clone biar looping mulus */}
+          {gallery.map((img, index) => (
+            <img
+              key={`clone-${index}`}
+              src={img.src}
+              alt={img.alt}
+              className="mx-2"
+              style={{ width: "100px", height: "50px" }}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* Footer */}
-      <footer className="bg-dark text-white py-4">
+      <footer className=" text-white py-4">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <h5>Let's Connect</h5>
-              <p>
-                Interested in working together or just want to chat? Feel free
-                to reach out!
-              </p>
+              <h5>SLOGAN</h5>
+              <p>“Play Beyond Reality”, “From Local to Global”</p>
             </div>
             <div className="col-md-6 text-end">
               <a
@@ -384,8 +416,8 @@ const AboutMe = () => {
           </div>
           <div className="text-center mt-4">
             <p className="small">
-              &copy; {new Date().getFullYear()} Alex Johnson. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} ARIS
+              🤖👾👻🎮🧩♟️🪩🎲🎰🕹️🔮🪄🎵⚒️🚀🚀.
             </p>
           </div>
         </div>
